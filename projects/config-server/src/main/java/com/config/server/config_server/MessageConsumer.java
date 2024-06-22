@@ -1,10 +1,9 @@
 package com.config.server.config_server;
 
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.annotation.StreamListener;
-import org.springframework.cloud.stream.messaging.Sink;
 
-@EnableBinding(Sink.class)
+import org.apache.tomcat.util.net.WriteBuffer;
+
+@EnableBinding(WriteBuffer.Sink.class)
 public class MessageConsumer {
 
     @StreamListener(Sink.INPUT)

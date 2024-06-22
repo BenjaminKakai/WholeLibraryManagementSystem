@@ -7,7 +7,7 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.MessageChannel;
 
 @EnableBinding(Source.class)
-public class MessageProducer {
+public final class MessageProducer {
 
     private final MessageChannel outputChannel;
 

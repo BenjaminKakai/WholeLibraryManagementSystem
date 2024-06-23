@@ -1,4 +1,4 @@
-package com.library.management.usermanagement.payload.response;
+package com.library.management.user_management_service.payload.response;
 
 public class MessageResponse {
     private String message;

@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/projects/config-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/projects/gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/projects/lmseureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/projects/user-management-service/src/main/java" charset="UTF-8" />
   </component>
 </project>

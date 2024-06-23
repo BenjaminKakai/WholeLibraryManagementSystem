@@ -1,6 +1,7 @@
-package com.library.management.usermanagement.repository;
+package com.library.management.user_management_service.repository;
 
-import com.library.management.usermanagement.model.User;
+
+import com.library.management.user_management_service.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

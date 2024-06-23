@@ -1,7 +1,8 @@
-package com.library.management.usermanagement.repository;
+package com.library.management.user_management_service.repository;
 
-import com.library.management.usermanagement.model.ERole;
-import com.library.management.usermanagement.model.Role;
+
+import com.library.management.user_management_service.model.ERole;
+import com.library.management.user_management_service.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

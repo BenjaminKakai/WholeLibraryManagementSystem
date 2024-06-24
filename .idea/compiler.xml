@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lmseureka" />
         <module name="config-server" />
+        <module name="catalog-management-service" />
         <module name="gateway" />
         <module name="user-management-service" />
       </profile>
@@ -15,6 +16,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="catalog-management-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="lmseureka" options="-parameters" />

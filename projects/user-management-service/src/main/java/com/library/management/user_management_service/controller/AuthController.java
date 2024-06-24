@@ -1,15 +1,14 @@
 package com.library.management.user_management_service.controller;
 
-
 import com.library.management.user_management_service.model.Role;
 import com.library.management.user_management_service.payload.request.LoginRequest;
 import com.library.management.user_management_service.payload.request.SignupRequest;
 import com.library.management.user_management_service.payload.response.JwtResponse;
 import com.library.management.user_management_service.payload.response.MessageResponse;
 import com.library.management.user_management_service.repository.RoleRepository;
+import com.library.management.user_management_service.security.jwt.JwtUtils;
 import com.library.management.user_management_service.security.jwt.UserDetailsImpl;
-import com.library.management.usermanagement.security.jwt.JwtUtils;
-import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,6 +21,8 @@ import com.library.management.user_management_service.model.ERole;
 import com.library.management.user_management_service.model.User;
 import com.library.management.user_management_service.repository.UserRepository;
 
+
+import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

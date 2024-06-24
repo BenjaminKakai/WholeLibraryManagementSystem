@@ -1,6 +1,7 @@
 package com.library.management.user_management_service.model;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")

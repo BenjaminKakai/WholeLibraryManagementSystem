@@ -1,7 +1,7 @@
 package com.library.management.user_management_service.payload.request;
 
 
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 public class LoginRequest {
     @NotBlank

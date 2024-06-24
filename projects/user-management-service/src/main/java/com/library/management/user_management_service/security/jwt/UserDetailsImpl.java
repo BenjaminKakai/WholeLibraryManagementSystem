@@ -1,65 +1,50 @@
 package com.library.management.user_management_service.security.jwt;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.library.management.user_management_service.model.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
-/**
- * Implementation of {@link UserDetails} representing a user's authentication information.
- *
- * @since 9
- */
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    private String username;
-
-    @JsonIgnore
+    private String email;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    /**
-     * Constructs a new {@code UserDetailsImpl} with the specified details.
-     *
-     * @param id the user's ID
-     * @param username the user's username
-     * @param password the user's password
-     * @param authorities the authorities granted to the user
-     * @since 9
-     */
-    public UserDetailsImpl(Long id, String username, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UserDetailsImpl(Long id, String email, String password,
+                           Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
-        this.username = username;
+        this.email = email;
         this.password = password;
         this.authorities = authorities;
     }
 
-    /**
-     * Builds a {@code UserDetailsImpl} instance from a {@link User} entity.
-     *
-     * @param user the {@code User} entity
-     * @return a new {@code UserDetailsImpl} instance
-     * @since 9
-     */
     public static UserDetailsImpl build(User user) {
-        // Logic to build UserDetailsImpl from User entity
+        List<GrantedAuthority> authorities = user.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.getName().name()))
+                .collect(Collectors.toList());
+
         return new UserDetailsImpl(
                 user.getId(),
                 user.getEmail(),
                 user.getPassword(),
-                List.of() // Populate with user's authorities
-        );
+                authorities);
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     @Override
@@ -69,20 +54,9 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
-    /**
-     * Returns the user's ID.
-     *
-     * @return the user's ID
-     * @since 9
-     */
-    public Long getId() {
-        return id;
-    }
-
-    // Setters and other overridden methods from UserDetails interface
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -107,12 +81,7 @@ public class UserDetailsImpl implements UserDetails {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserDetailsImpl that = (UserDetailsImpl) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+        UserDetailsImpl user = (UserDetailsImpl) o;
+        return Objects.equals(id, user.id);
     }
 }

@@ -1,5 +1,7 @@
-package com.library.management.usermanagement.security;
+package com.library.management.user_management_service.security;
 
+import com.library.management.user_management_service.security.jwt.AuthEntryPointJwt;
+import com.library.management.user_management_service.security.jwt.AuthTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserDetailsImpl userDetailsService;
 
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;

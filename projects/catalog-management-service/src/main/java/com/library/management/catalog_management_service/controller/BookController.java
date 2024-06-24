@@ -1,12 +1,15 @@
 package com.library.management.catalog_management_service.controller;
 
 
+import com.library.management.catalog_management_service.model.Book;
+import com.library.management.catalog_management_service.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/api/books")

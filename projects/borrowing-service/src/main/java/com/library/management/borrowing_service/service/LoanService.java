@@ -14,6 +14,9 @@ public class LoanService {
     @Autowired
     private LoanRepository loanRepository;
 
+    @Autowired
+    private NotificationService notificationService;
+
     public List<Loan> getAllLoans() {
         return loanRepository.findAll();
     }
@@ -25,7 +28,9 @@ public class LoanService {
     public Loan saveLoan(Loan loan) {
         loan.setLoanDate(LocalDate.now());
         loan.setDueDate(LocalDate.now().plusWeeks(2));  // Example: 2 weeks loan period
-        return loanRepository.save(loan);
+        Loan savedLoan = loanRepository.save(loan);
+        notificationService.sendDueDateNotification("Book due on: " + savedLoan.getDueDate());
+        return savedLoan;
     }
 
     public void returnBook(Long id) {

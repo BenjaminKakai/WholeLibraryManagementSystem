@@ -14,6 +14,9 @@ public class OverdueService {
     @Autowired
     private OverdueRepository overdueRepository;
 
+    @Autowired
+    private NotificationService notificationService;
+
     public List<Overdue> getAllOverdues() {
         return overdueRepository.findAll();
     }
@@ -26,7 +29,9 @@ public class OverdueService {
         Overdue overdue = new Overdue();
         overdue.setLoanId(loanId);
         overdue.setOverdueDate(LocalDate.now());
-        return overdueRepository.save(overdue);
+        Overdue savedOverdue = overdueRepository.save(overdue);
+        notificationService.sendOverdueNotification("Book overdue: Loan ID " + savedOverdue.getLoanId() + " is overdue since " + savedOverdue.getOverdueDate());
+        return savedOverdue;
     }
 
     public void deleteOverdue(Long id) {

@@ -8,10 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lmseureka" />
         <module name="config-server" />
-        <module name="catalog-management-service" />
         <module name="borrowing-service" />
-        <module name="gateway" />
         <module name="user-management-service" />
+        <module name="catalog-management-service" />
+        <module name="external-catalog-integration-service" />
+        <module name="gateway" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +21,7 @@
       <module name="borrowing-service" options="-parameters" />
       <module name="catalog-management-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
+      <module name="external-catalog-integration-service" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="lmseureka" options="-parameters" />
       <module name="user-management-service" options="-parameters" />

@@ -1,5 +1,6 @@
 **Library Management System**
-This i a comprehensive microservices-based Library Management System built with Spring Boot, Apache Kafka, and modern cloud-native technologies. The system enables efficient management of book loans, reservations, and library operations through a distributed architecture.
+
+This is a comprehensive microservices-based Library Management System built with Spring Boot, Apache Kafka, and modern cloud-native technologies. Through a distributed architecture, the system enables efficient management of book loans, reservations, and library operations.
 
 **Key Features**
 
